@@ -1,6 +1,6 @@
 Python
 -------------------------------------------------------------------------------
-python -m pip install sentence-transformers faiss-cpu PyPDF2 beautifulsoup4 tqdm requests
+python -m pip install sentence-transformers faiss-cpu PyPDF2 beautifulsoup4 tqdm requests tf-keras
 
 
 Ambiente
@@ -9,3 +9,6 @@ Tener Ollama instalado y corriendo con el modelo mistral descargado
 https://ollama.com/
 
 ollama run mistral
+
+
+-------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 # crear_indice.py
 import os
+import sys
 import faiss
 import numpy as np
 import pickle
@@ -8,10 +9,15 @@ from PyPDF2 import PdfReader
 from bs4 import BeautifulSoup
 from sentence_transformers import SentenceTransformer
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'             # Silencia INFO y WARNING
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'            # Desactiva oneDNN
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+
 # --- Configuración ---
-model = SentenceTransformer('distiluse-base-multilingual-v2')
-dimension = 512
+model = SentenceTransformer('./all-MiniLM-L6-v2')
+dimension = model.get_sentence_embedding_dimension()  # ← correcto
 index = faiss.IndexFlatL2(dimension)
+
 index_to_doc = {}
 
 def extraer_texto_pdf(path):

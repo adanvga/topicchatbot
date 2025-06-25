@@ -1,12 +1,19 @@
 # consultar_indice.py
+import os
+import sys
 import faiss
 import pickle
 import numpy as np
 import requests
 from sentence_transformers import SentenceTransformer
 
+# Forzar directorio de trabajo al del script
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+
+
 # --- Configuración ---
-model = SentenceTransformer('distiluse-base-multilingual-v2')
+model = SentenceTransformer('./all-MiniLM-L6-v2')
+
 index = faiss.read_index("index.faiss")
 
 with open("index_to_doc.pkl", "rb") as f:
@@ -33,7 +40,7 @@ Respuesta:"""
 
 # --- Ejemplo de uso ---
 if __name__ == "__main__":
-    pregunta = input("❓ Pregunta: ")
+    pregunta = input("❓ Pregunta: ¿cuál es el tema principal?")
     contexto = "\n".join(buscar_contexto(pregunta, k=3))
     respuesta = preguntar_llm_ollama(pregunta, contexto)
     print("\n🧠 Respuesta:\n", respuesta)
