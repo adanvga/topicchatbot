@@ -64,5 +64,5 @@ def construir_y_guardar_indice(ruta_docs, salida_faiss="index.faiss", salida_dic
 
 # --- Uso ---
 if __name__ == "__main__":
-    ruta = "ruta/a/tu/carpeta"
+    ruta = r"C:\Users\Adan\Documents\Tmp\GitHub\docsforllmchatbot"
     construir_y_guardar_indice(ruta)

@@ -1,6 +1,6 @@
 Python
 -------------------------------------------------------------------------------
-pip install sentence-transformers faiss-cpu PyPDF2 beautifulsoup4 tqdm requests
+python -m pip install sentence-transformers faiss-cpu PyPDF2 beautifulsoup4 tqdm requests
 
 
 Ambiente
